@@ -38,7 +38,9 @@ const { miniProgram: { envVersion } } = wx.getAccountInfoSync();
 PS. 最新开发工具，已支持自动生成 ts、less，忽略 js、wxss
 
 ## 部分展示
-![首页](./miniprogram/img/show/01.PNG)
-![播放](./miniprogram/img/show/02.PNG)
-![录音](./miniprogram/img/show/03.PNG)
-![登陆](./miniprogram/img/show/04.PNG)
+<figure>
+    <img src="./miniprogram/img/show/01.PNG" alt="首页">
+    <img src="./miniprogram/img/show/02.PNG" alt="播放">
+    <img src="./miniprogram/img/show/03.PNG" alt="录音">
+    <img src="./miniprogram/img/show/04.PNG" alt="登陆">
+</figure>
