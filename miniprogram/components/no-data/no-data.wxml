@@ -1,0 +1,7 @@
+<!--components/no-data/no-data.wxml-->
+<view class="no-data h-full d-flex flex-center" wx:if="{{visible}}">
+  <view class="ta-c">
+    <image style="width: 400rpx; height: 260rpx; display: block;" mode="{{mode}}" src="https://res.qiyukf.net/yx/9c8f5defefb189da891d1291b298db24"></image>
+    <text class="fc-th c-999 ">{{text}}</text>
+  </view>
+</view>

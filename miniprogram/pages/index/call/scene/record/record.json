@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "录音",
+  "usingComponents": {
+    "svg-icon": "../../../../../components/svg-icon/svg-icon"
+  }
+}

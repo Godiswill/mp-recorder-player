@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#ffffff",
+  "usingComponents": {
+    "svg-icon": "../../../components/svg-icon/svg-icon"
+  }
+}

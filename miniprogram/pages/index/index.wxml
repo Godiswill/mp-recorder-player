@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view class="ys-record bgc-pr d-flex flex-dc h-full">
+  <view class="ys-record-header-warp" style="height: {{CustomBarHeight}}px;">
+    <view class="ys-record-header c-w pl-32 d-flex flex-aic pos-f w-full" style="height: {{CustomBarHeight}}px; padding-top: {{StatusBarHeight}}px;">
+      <image class="mr-8" src="../../img/logo.svg" />
+      <text class="ys-record-header__title fs-36">录音播放</text>
+    </view>
+  </view>
+  <!-- <view class="ys-record-tabs d-flex">
+    <view class="c-999 {{tab === 0? 'active' : ''}}" data-status="{{0}}" bindtap="tabChange">未完成</view>
+    <view class="c-999 {{tab === 1? 'active' : ''}}" data-status="{{1}}" bindtap="tabChange">已完成</view>
+  </view> -->
+  <view class="ys-record-search bgc-w pos-r">
+    <input type="text" confirm-type="search" placeholder="输入话术名称搜索" maxlength="20" bindconfirm="bindSearch" />
+    <svg-icon extClass="pos-a" extStyle="top: 34rpx; left: 50rpx;" size="28" color="#BFBFBF" src="/img/search.svg" />
+  </view>
+
+  <scroll-view scroll-y refresher-enabled="{{true}}" lower-threshold="{{100}}" refresher-threshold="{{100}}" refresher-default-style="white" refresher-background="#eeeef0" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh" bindscrolltolower="onToBottom" class="ys-record-list-wrap flex-1 ovy-a">
+    <block wx:if="{{list.length === 0 && !hasNextPage}}">
+      <no-data visible />
+
+    </block>
+    <view wx:else class="ys-record-list">
+      <view wx:for="{{list}}" wx:key="botId" class="ys-record-item fs-24 bgc-w bdrs-16" data-item="{{item}}" bindtap="bindViewTap">
+        <view class="ys-record-item-top">
+          <view class="fs-32 fw-5">{{item.botName}}</view>
+          <view style="white-space:nowrap;" class="c-999 bgc-gray pl-16 pr-16 bdrs-32 {{item.isCompleted ? 'ys-record-item-top__status' : ''}}">{{RecordingStatusMap[item.isCompleted? '1': '0']}}</view>
+        </view>
+        <view class="mt-40 mb-16">
+          <view class="c-666">录音进度<text class="{{item.isCompleted ? 'c-green' : 'c-pr'}} ml-16">{{item.percent}}%</text></view>
+          <view class="c-gray">更新于{{item.updateTimeStr}}</view>
+        </view>
+        <progress activeColor="{{item.isCompleted ? '#00BF80' : '#337EFF'}}" percent="{{item.percent}}" stroke-width="4" border-radius="16" backgroundColor="#F5F5F7" />
+      </view>
+      <view wx:if="{{!hasNextPage}}" class="ta-c c-999 mt-16">
+        <text>没有更多啦</text>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- <nav-bar /> -->
+</view>

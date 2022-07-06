@@ -1,0 +1,6 @@
+<view class="scene">
+  <view wx:for="{{list}}" wx:key="index" class="scene-item bgc-w pos-r">
+    <view class="scene-item__status pos-a r t {{item.status === 1 ? 'success' : ''}}">{{item.status ? '已完成' : '未完成'}}</view>
+    <view class="wb-ba" data-item="{{item}}" bindtap="bindGoRecord">{{item.callScript}}</view>
+  </view>
+</view>

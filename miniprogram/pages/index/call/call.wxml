@@ -1,0 +1,24 @@
+<view class="call d-flex flex-dc h-full ov-h">
+  <view class="call-header d-flex flex-sb flex-aic c-999 bgc-w">
+    <view><text>{{detail.recordedTotal}}已录</text> / {{detail.total}}全部</view>
+    <view class="d-flex c-red" bindtap="bindClearAll">
+      <svg-icon extClass="bgc-red mr-8" size="24" va="baseline" src="/img/delete.svg" /> 清空全部
+    </view>
+  </view>
+
+  <view class="bgc-w pt-32 mt-16 mb-16 flex-1 ovy-a">
+    <view class="call-panel">
+      <view class="call-panel-header fs-32 pt-8 pb-8 fw-5">主话术流程（<text>{{detail.recordedMainProcessTotal}}</text>/{{detail.mainProcessTotal}}）</view>
+      <view class="call-panel-list">
+        <view wx:for="{{detail.mainProcessDetails}}" wx:key="sceneId" class="call-panel-item d-flex flex-sb flex-aic pt" data-index1="{{index}}" bindtap="bindGotoScene" data-type="scene" data-item="{{item}}">
+          <view class="c-333">{{item.sceneName}}</view>
+          <view class="{{item.recordedTotal !== item.total ? 'c-pr' : 'c-green'}}">{{item.recordedTotal !== item.total ? '待录音': '已录音'}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{detail.recordedTotal !== detail.total}}" class="bottom-fix w-full" bindtap="quickStart">
+    <button class="btn btn-block">快速开始</button>
+  </view>
+</view>

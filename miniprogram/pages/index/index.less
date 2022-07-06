@@ -1,0 +1,95 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  overflow: auto;
+}
+
+.ys-record-header image {
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.ys-record-header__title {
+  line-height: 52rpx;
+}
+
+.ys-record-tabs {
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 32rpx 32rpx 0 0;
+  margin-top: 20rpx;
+  line-height: 44rpx;
+  font-size: 28rpx;
+}
+
+.ys-record-tabs view {
+  margin-right: 24rpx;
+}
+
+.ys-record-tabs .active {
+  position: relative;
+  font-size: 36rpx;
+  color: #222222;
+}
+
+.ys-record-tabs .active::after {
+  display: inline-block;
+  content: ' ';
+  background-color: #337EFF;
+  position: absolute;
+  bottom: -10rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 6rpx;
+  width: 30%;
+}
+
+.ys-record-search {
+  padding: 16rpx 24rpx;
+}
+
+.ys-record-search input {
+  background: #F0F0F2;
+  border-radius: 66rpx;
+  height: 64rpx;
+  text-indent: 60rpx;
+  /* padding-left: 60rpx; */
+  text-align: center;
+}
+
+.ys-record-list {
+  /* padding: 24rpx 24rpx 136rpx; */
+  padding: 24rpx 24rpx 36rpx;
+}
+.ys-record-list-wrap {
+  box-sizing: border-box;
+  background-color: #F5F7FA;
+}
+
+.ys-record-item {
+  height: 212rpx;
+  padding: 36rpx;
+}
+
+.ys-record-item + .ys-record-item {
+  margin-top: 16rpx;
+}
+
+.ys-record-item > view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ys-record-item-top > view {
+  height: 45rpx;
+  line-height: 45rpx;
+  display: flex;
+  align-items: center;
+}
+
+.ys-record-item-top__status {
+  background-color: #EBFEED;
+  color: #1DB035;
+}

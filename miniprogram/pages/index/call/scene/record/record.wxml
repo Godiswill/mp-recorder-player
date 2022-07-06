@@ -1,0 +1,76 @@
+<template name="svgWithCircle">
+  <view hidden="{{hidden}}" bindtap="{{bindtap}}" style="background: {{bgColor}}; height: {{cSize}}rpx; width: {{cSize}}rpx; border-radius: 100%; " class="d-flex flex-center">
+    <svg-icon wx:if="{{src}}" src="{{src}}" size="{{iSize||''}}" color="{{iColor || '#666666'}}" />
+    <view wx:else style="height: 50rpx; width: 50rpx;" class="bgc-w bdrs-8" />
+  </view>
+</template>
+
+
+<view class="record h-full d-flex flex-dc ov-h">
+  <view class="record-header d-flex flex-aic flex-sb bgc-w pl-24 pr-24 pos-r">
+    <text class="c-333">{{detail.showName}}</text>
+    <text class="{{detail.status ? 'c-green' : 'c-pr'}}">{{detail.status ? '已录音' : '待录音'}}</text>
+  </view>
+  <view wx-if="{{isRecording}}" class="pos-f trbl" style="background: rgba(0, 0, 0, 0.4);" />
+  <view class="flex-1 d-flex flex-dc flex-sb p-24 ov-h">
+    <view class="ov-h d-flex flex-dc">
+      <view class="bgc-w p-32 ovy-a pos-r wb-ba" style="line-height: 40rpx; font-size: 30rpx;">
+        {{detail.callScript}}
+      </view>
+      <view wx:if="{{!detail.url && !isRecording}}" class="d-flex flex-sb p-32 flex-aic">
+        剪切开头结尾的空白录音
+        <switch color="#337EFF" checked="{{audioShapingSwitch}}" bindchange="switchChange" />
+      </view>
+    </view>
+    <view class="ta-c mt-32 mb-32 pos-r">
+      <block wx:if="{{detail.url}}">
+        <view class="d-flex flex-aic flex-sa pl-32 pr-32 pb-16">
+          <text class="c-333">{{currentTime}}</text>
+          <progress percent="{{playPercent}}" class="flex-1 ml-8 mr-8" stroke-width="4" activeColor="#999" backgroundColor="E8E9EB" border-radius="2" />
+          <text class="c-333">{{duration}}</text>
+        </view>
+        <view class="d-flex flex-center pos-r">
+          <!-- <template is="svgWithCircle" data="{{ cSize: 80, src: '/img/microphone.svg', bgColor: 'white' }}" /> -->
+
+          <view class="pos-a pl-32" style="left: 0; top: 35rpx">
+            <template is="svgWithCircle" data="{{ cSize: 80, src: '/img/delete.svg', bgColor: 'white', iColor: '#F24957', bindtap: 'bindDeleteRecord' }}" />
+          </view>
+
+          <view hidden="{{!isPlaying}}">
+            <template is="svgWithCircle" data="{{ cSize: 150, iSize: 80, src: '/img/suspend.svg', bgColor: '#21CC3D', iColor: 'white', bindtap: 'bindStopPlay'  }}" />
+            <view class="mt-16">点击停止</view>
+          </view>
+
+          <view hidden="{{isPlaying}}">
+            <template is="svgWithCircle" data="{{ cSize: 150, iSize: 80, src: '/img/play.svg', bgColor: '#21CC3D', iColor: 'white', bindtap: 'bindStartPlay'  }}" />
+            <view class="mt-16">点击播放</view>
+          </view>
+
+        </view>
+      </block>
+      <view class="d-flex flex-center" wx:else>
+        <view wx:if="{{isRecording}}">
+          <view class="c-w pb-40">{{clock}}</view>
+          <template is="svgWithCircle" data="{{ cSize: 150, bgColor: '#F24957', bindtap: 'bindStopRecord' }}" />
+          <view class="mt-16">点击上传</view>
+        </view>
+        <view wx:else>
+          <template is="svgWithCircle" data="{{ cSize: 150, iSize: 80, src: '/img/microphone.svg', bgColor: '#337EFF', iColor: 'white', bindtap: 'bindStartRecord'  }}" />
+          <view class="mt-16">点击录音</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom-fix bgc-w">
+    <!-- <progress percent="{{detail.percent}}" active duration="6" activeColor="#337EFF" backgroundColor="#F0F0F8" stroke-width="5" /> -->
+    <view class="d-flex flex-aic flex-sb pl-24 pr-24 c-999" style="height: 128rpx;">
+      <view class="d-flex flex-aic {{isFirst ? '' : 'c-pr'}}" data-type="LAST" bindtap="bindLastOrNext">
+        <view class="mr-8" style="transform: scaleY(1.4);">＜</view> 上一条
+      </view>
+      <view>{{bottomText}}</view>
+      <view class="d-flex flex-aic {{isLast ? '' : 'c-pr'}}" data-type="NEXT" bindtap="bindLastOrNext">
+        下一条 <view class="ml-8" style="transform: scaleY(1.4);">＞</view>
+      </view>
+    </view>
+  </view>
+</view>

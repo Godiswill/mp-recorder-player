@@ -1,0 +1,16 @@
+<view class="profile d-flex flex-dc flex-sb h-full">
+  <view class="flex-1">
+    <view class="profile-container">
+      <image src="//res.qiyukf.net/ys/a8cb0be47ca0287d69e59c1e6f495c9f"></image>
+      <view>
+        <view class="profile-container__name">{{userInfo.name}}</view>
+        <view class="profile-container__tel">{{userInfo.phone}}</view>
+      </view>
+    </view>
+    <view class="profile-logout">
+      <view class="d-flex flex-aic" bindtap="logout">
+        <svg-icon class="mr-16" src="/img/logout.svg" color="#CECECE" /> 退出登录
+      </view>
+    </view>
+  </view>
+</view>

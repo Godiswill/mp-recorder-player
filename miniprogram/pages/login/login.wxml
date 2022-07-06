@@ -1,0 +1,18 @@
+<!--pages/login/login.wxml-->
+<view class="login">
+  <view class="login-header">
+    <image src="//nos.netease.com/ysf/operation/e5916512e0e4f3d076ab87267d1ff034" />
+    <view class="login-header__title">欢迎登录</view>
+  </view>
+  <view class="login-form">
+    <view class="login-form-inputs">
+      <input model:value="{{mobile}}" bindinput="sbWeixin" type="number" maxlength="11" placeholder="请输入手机号" placeholder-class="login-form__input" />
+      <view class="d-flex flex-sb flex-aic">
+        <input model:value="{{verifyCode}}" bindinput="sbWeixin" type="number" maxlength="4" placeholder="请输入手机验证码" placeholder-class="login-form__input" />
+        <view wx:if="{{clock}}" class="c-pr">{{clock}}s</view>
+        <view wx:else class="c-pr" bindtap="getSMSCode">获取验证码</view>
+      </view>
+    </view>
+    <view><button class="btn btn-block" bindtap="login">登录</button></view>
+  </view>
+</view>

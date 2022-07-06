@@ -1,0 +1,20 @@
+{
+  "name": "miniprogram-ts-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "./node_modules/typescript/bin/tsc --watch",
+    "compile": "./node_modules/typescript/bin/tsc",
+    "tsc": "node ./node_modules/typescript/lib/tsc.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "miniprogram-recycle-view": "^0.1.5"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^3.5.0",
+    "typescript": "^3.3.3333"
+  }
+}

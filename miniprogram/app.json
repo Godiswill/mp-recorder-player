@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/my/my",
+    "pages/index/call/call",
+    "pages/index/call/scene/scene",
+    "pages/index/call/scene/record/record"
+  ],
+  "window": {
+    "backgroundColor": "#F5F7FA",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F5F7FA",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": false,
+    "borderStyle": "white",
+    "color": "#BFBFBF",
+    "selectedColor": "#337EFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "话术录音",
+        "iconPath": "./img/tabBar/microphone.png",
+        "selectedIconPath": "./img/tabBar/microphone-selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./img/tabBar/my.png",
+        "selectedIconPath": "./img/tabBar/my-selected.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

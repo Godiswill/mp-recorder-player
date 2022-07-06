@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "backgroundColor": "#337EFF",
+  "usingComponents": {
+    "svg-icon": "../../components/svg-icon/svg-icon",
+    "no-data": "../../components/no-data/no-data"
+  }
+}
