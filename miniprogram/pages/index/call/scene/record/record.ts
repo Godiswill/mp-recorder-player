@@ -16,8 +16,8 @@ const msgMap: Record<string, string> = {
 
 let timer: number;
 let clockCurTime: number;
-let recorderManager: WechatMiniprogram.RecorderManager;
-let innerAudioContext: WechatMiniprogram.InnerAudioContext = wx.createInnerAudioContext();
+const recorderManager: WechatMiniprogram.RecorderManager = wx.getRecorderManager();
+const innerAudioContext: WechatMiniprogram.InnerAudioContext = wx.createInnerAudioContext();
 let gap = 0;
 let isError = false;
 
@@ -181,7 +181,6 @@ Page<TRecordQuery, any>({
   },
 
   initRecorder() {
-    recorderManager = wx.getRecorderManager();
     // 监听录音错误事件
     recorderManager.onError((err) => {
       this.noEffectStopRecorder();
