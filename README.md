@@ -6,8 +6,8 @@
 1. [wx.createInnerAudioContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/audio/wx.createInnerAudioContext.html)： 创建内部 audio 上下文 [InnerAudioContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/audio/InnerAudioContext.html) 对象
 
 ## 使用步骤
-1. `npm i`
-1. 工具 -> 构建 npm // 如未有依赖，可忽略
+1. `npm i` // 如未有依赖，可忽略
+1. 工具 -> 构建 npm 
 
 ## 约束
 1. TS 声明文件放置 typings/ 中，不需要 import、export
@@ -40,7 +40,9 @@ PS. 最新开发工具，已支持自动生成 ts、less，忽略 js、wxss
 ## 部分展示
 <div>
     <img width="24%" src="./miniprogram/img/show/01.PNG" alt="首页">
-    <img width="24%" src="./miniprogram/img/show/02.PNG" alt="播放">
-    <img width="24%" src="./miniprogram/img/show/03.PNG" alt="录音">
-    <img width="24%" src="./miniprogram/img/show/04.PNG" alt="登陆">
+    <img width="24%" src="./miniprogram/img/show/02.PNG" alt="录音">
+    <img width="24%" src="./miniprogram/img/show/03.PNG" alt="录音中">
+    <img width="24%" src="./miniprogram/img/show/04.PNG" alt="播放">
+    <img width="24%" src="./miniprogram/img/show/05.PNG" alt="播放中">
+    <img width="24%" src="./miniprogram/img/show/06.PNG" alt="登陆">
 </div>
