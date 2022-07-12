@@ -1,7 +1,9 @@
 // wx Storage 统一配置处
+const { miniProgram: { envVersion } } = wx.getAccountInfoSync();
+
 export const StorageMap = {
-  UserInfo: 'userInfo',
-  Cookie: 'cookie',
+  UserInfo: `${envVersion}_userInfo`,
+  Cookie: `${envVersion}_cookie`,
 };
 
 // 录音状态

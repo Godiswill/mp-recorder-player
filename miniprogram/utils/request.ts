@@ -1,3 +1,4 @@
+import { StorageMap } from '../consts/index'
 import { envConfig } from './env';
 import { showErrMsg, cookies } from './util';
 
@@ -16,13 +17,15 @@ export function _request<T = any>({ url, data, method }: WechatMiniprogram.Reque
   }
   return new Promise<T>((resolve, reject) => {
     const params = data && JSON.parse(JSON.stringify(data));
+    const cookie = cookies.get();
     console.log(url, '请求入参：', params);
+    console.log(url, `请求 ${StorageMap.Cookie}：`, cookie);
     wx.request<{ code: number; data: T; msg: string; }>({
       url: envConfig.origin + url,
       data: params, // 清理 undefined
       method,
       header: {
-        cookie: cookies.get(),
+        cookie,
       },
       success: (res) => {
         // debugger;
